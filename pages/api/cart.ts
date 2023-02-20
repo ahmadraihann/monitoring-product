@@ -1,5 +1,5 @@
 import request from "@/utils/axios";
-import { responseCart, typeCart, typeProductCart, names } from "@/types";
+import { responseCart, typeCart, names } from "@/types";
 
 const getCart = async () => {
   return new Promise<responseCart>(async (resolve, reject) => {

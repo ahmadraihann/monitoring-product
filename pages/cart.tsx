@@ -4,19 +4,12 @@ import React from "react";
 import { Card, Table, Row, Col, Select, Input, Button } from "antd";
 import WindowDimension from "@/utils/resize";
 import { useEffect, useState } from "react";
-import {
-  typeCart,
-  responseCart,
-  typeProductCart,
-  typeMeta,
-  names,
-} from "@/types";
+import { typeCart, responseCart, typeMeta } from "@/types";
 import ApiCart from "@/pages/api/cart";
-import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
+import type { TablePaginationConfig } from "antd/es/table";
 import type { FilterValue, SorterResult } from "antd/es/table/interface";
 import { debounce } from "lodash";
 import { EyeOutlined } from "@ant-design/icons";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const itemBreadcrumb = [
@@ -48,7 +41,6 @@ function cart() {
     setIsLoadingTable(true);
     await ApiCart.getCart()
       .then((res) => {
-        console.log("response", res);
         processDatatable(res, payload);
       })
       .catch(() => {
@@ -306,7 +298,7 @@ function cart() {
       </div>
 
       <Card>
-        <Row justify="end" gutter={[20, 20]} style={{ marginBottom: "30px" }}>
+        <Row justify="end" gutter={[10, 10]} style={{ marginBottom: "30px" }}>
           <Col span={8} md={4} xl={2}>
             <Select
               defaultValue={10}
@@ -331,10 +323,6 @@ function cart() {
                 handleSearch(e.target.value);
               }}
               placeholder="Search"
-              // style={{
-              //   maxWidth: dimension.width < 768 ? "100%" : "250px",
-              //   float: "right",
-              // }}
             />
           </Col>
         </Row>

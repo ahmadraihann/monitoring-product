@@ -1,16 +1,12 @@
-// import Head from "next/head";
-// import Image from "next/image";
-// import styles from "@/styles/Home.module.css";
 import React from "react";
 import PageTitle from "@/components/PageTitle";
 import BreadCrumb from "@/components/BreadCrumb";
 import { Card, Table, Row, Col, Select, Input, Button } from "antd";
 import WindowDimension from "@/utils/resize";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ApiProduct from "@/pages/api/product";
 import { typeProduct, responseProduct, typeMeta } from "@/types";
-// import type { TableProps } from "antd/es/table";
-import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
+import type { TablePaginationConfig } from "antd/es/table";
 import type { FilterValue, SorterResult } from "antd/es/table/interface";
 import { debounce } from "lodash";
 
@@ -480,32 +476,9 @@ export default function product() {
     });
     setDataTable(arrPrice);
     setAllDataproductFilter(arrPrice);
-    // let arrFilter: typeProduct[] = [];
-    // // Brand
-    // if (typeof payload.valueBrand === "string") {
-    //   arrFilter = dataAllProduct.filter(
-    //     (item) => item.brand === payload.valueBrand
-    //   );
-    // } else [(arrFilter = dataAllProduct)];
-    // setMeta({
-    //   limit: 10,
-    //   skip: 0,
-    //   page: 1,
-    //   total: arrFilter.length,
-    // });
-    // setDataTable(arrFilter);
   };
 
   const fieldColumns = [
-    // {
-    //   title: "No",
-    //   render: (_, record, index) => {
-    //     return (
-    //       parseInt(valueLimitShow) * (parseInt(currentPage) - 1) + index + 1
-    //     );
-    //   },
-    //   width: "70px",
-    // },
     {
       title: "Product Name",
       dataIndex: "title",
@@ -539,12 +512,6 @@ export default function product() {
       sorter: true,
       key: "category",
     },
-    // {
-    //   title: "Action",
-    //   dataIndex: "action",
-    //   // sorter: true,
-    //   key: "action",
-    // },
   ];
 
   return (

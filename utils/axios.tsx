@@ -20,14 +20,7 @@ const request = axios.create({
 
 request.interceptors.response.use(
   (response) => {
-    // console.log("response", response);
     if (response?.config?.method === "post") {
-      //   if (
-      //     response?.config?.url !== "login" &&
-      //     response?.config?.url !== "import-xls"
-      //   ) {
-      //     handleNotification("success", "Success", "Data successfully added");
-      //   }
     } else if (response?.config?.method === "put") {
       handleNotification("success", "Success", "Data successfully updated");
     } else if (response?.config?.method === "delete") {
@@ -36,13 +29,7 @@ request.interceptors.response.use(
     return response;
   },
   (error) => {
-    // console.log("Error", error);
-    // if (!error?.response) {
     handleNotification("error", "Error", "Something went wrong");
-    // }
-    // if (error?.response?.data?.message) {
-    //   handleNotification("error", "Error", error?.response?.data?.message);
-    // }
     return Promise.reject(error);
   }
 );
