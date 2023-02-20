@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-// how to get property website width and height
 export default function WindowDimension() {
   const [windowSize, setWindowSize] = useState({
     width: 0,

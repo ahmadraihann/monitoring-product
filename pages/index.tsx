@@ -3,24 +3,16 @@
 import styles from "@/styles/Home.module.css";
 import React from "react";
 import PageTitle from "@/components/PageTitle";
-import { Card, Table, Row, Col, Select, Input, Button } from "antd";
-import WindowDimension from "@/utils/resize";
-import { useEffect, useRef, useState } from "react";
+import { Card } from "antd";
+import { useEffect, useState } from "react";
 import ApiProduct from "@/pages/api/product";
-import { typeProduct, responseProduct, typeMeta } from "@/types";
-// import type { TableProps } from "antd/es/table";
-import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
-import type { FilterValue, SorterResult } from "antd/es/table/interface";
-import { debounce } from "lodash";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -30,7 +22,6 @@ interface typeDataChart {
 }
 
 export default function Home() {
-  const dimension = WindowDimension();
   const [dataChart, setDataChart] = useState<typeDataChart[]>([]);
 
   useEffect(() => {
@@ -40,7 +31,6 @@ export default function Home() {
   const handleGetDataChart = async () => {
     await ApiProduct.getProduct()
       .then((res) => {
-        // const arrChart: typeDataChart[] = [];
         const arrChart: typeDataChart[] = [];
         res.products.forEach((item) => {
           const findIndex = arrChart.findIndex(
@@ -62,7 +52,6 @@ export default function Home() {
           }
         });
         setDataChart(arrChart);
-        // console.log("arr", arrChart);
       })
       .catch(() => {});
   };
@@ -70,12 +59,8 @@ export default function Home() {
   return (
     <div>
       <PageTitle pageTitle="Dashboard" />
-      {/* <div style={{ margin: "10px 0" }}>
-        <BreadCrumb item={itemBreadcrumb} />
-      </div> */}
 
       <Card title="Brands Overview" style={{ margin: "10px 0 0 0" }}>
-        {/* <div className={styles["chart-title"]}>Brands Overview</div> */}
         <div className={styles["chart-container"]}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -93,7 +78,6 @@ export default function Home() {
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              {/* <Legend /> */}
               <Bar dataKey="value" fill="#4DB3FF" />
             </BarChart>
           </ResponsiveContainer>

@@ -11,7 +11,6 @@ interface propsType {
 }
 
 export default function BreadCrumb({ item }: propsType) {
-  console.log("item", item);
   return (
     <Breadcrumb>
       {item.map((element) => {

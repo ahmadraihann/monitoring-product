@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Drawer, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
 import styles from "./Layout.module.css";
 import {
   MenuFoldOutlined,
