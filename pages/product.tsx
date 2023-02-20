@@ -515,7 +515,7 @@ export default function product() {
   ];
 
   return (
-    <div>
+    <div style={{ height: isLoadingTable ? "100vh" : "100%" }}>
       <PageTitle pageTitle="Product" />
       <div style={{ margin: "10px 0" }}>
         <BreadCrumb item={itemBreadcrumb} />

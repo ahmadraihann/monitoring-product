@@ -291,7 +291,7 @@ function cart() {
   ];
 
   return (
-    <div>
+    <div style={{ height: isLoadingTable ? "100vh" : "100%" }}>
       <PageTitle pageTitle="Cart" />
       <div style={{ margin: "10px 0" }}>
         <BreadCrumb item={itemBreadcrumb} />

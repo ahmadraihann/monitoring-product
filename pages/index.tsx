@@ -57,7 +57,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <PageTitle pageTitle="Dashboard" />
 
       <Card title="Brands Overview" style={{ margin: "10px 0 0 0" }}>
