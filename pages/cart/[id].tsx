@@ -314,7 +314,7 @@ function CartDetail() {
   ];
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <PageTitle pageTitle="Cart Details" />
       <div style={{ margin: "10px 0" }}>
         <BreadCrumb item={itemBreadcrumb} />
