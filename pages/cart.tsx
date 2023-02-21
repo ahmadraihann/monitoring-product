@@ -225,15 +225,6 @@ function cart() {
   };
 
   const fieldColumns = [
-    // {
-    //   title: "No",
-    //   render: (_, record, index) => {
-    //     return (
-    //       parseInt(valueLimitShow) * (parseInt(currentPage) - 1) + index + 1
-    //     );
-    //   },
-    //   width: "70px",
-    // },
     {
       title: "User Name",
       dataIndex: "name",

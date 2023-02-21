@@ -16,11 +16,8 @@ import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import type { FilterValue, SorterResult } from "antd/es/table/interface";
 
 function CartDetail() {
-  // const router = useRouter();
   const dimension = WindowDimension();
   const [isLoadingTable, setIsLoadingTable] = useState(false);
-  // const { id } = router.query;
-  // console.log(id);
   const [dataCart, setDataCart] = useState<typeCart>();
   const [dataProductCart, setDataProductCart] = useState<typeProductCart[]>([]);
   const [dataAllProductCart, setAllProductDataCart] = useState<
@@ -42,10 +39,8 @@ function CartDetail() {
 
   const handleGetDataCart = async (value: string) => {
     setIsLoadingTable(true);
-    console.log(value);
     await ApiCart.getSingleCartByUser(value)
       .then((res) => {
-        console.log("response", res);
         const user = names.find((item) => item.id === res.carts[0].userId);
         setUserName(user === undefined ? "" : user.name);
 
@@ -62,7 +57,7 @@ function CartDetail() {
         setIsLoadingTable(false);
       })
       .catch(() => {
-        // setDataTable([]);
+        setDataProductCart([]);
         setIsLoadingTable(false);
       });
   };
@@ -251,15 +246,6 @@ function CartDetail() {
   ];
 
   const fieldColumns = [
-    // {
-    //   title: "No",
-    //   render: (_, record, index) => {
-    //     return (
-    //       parseInt(valueLimitShow) * (parseInt(currentPage) - 1) + index + 1
-    //     );
-    //   },
-    //   width: "70px",
-    // },
     {
       title: "Name Product",
       dataIndex: "title",
